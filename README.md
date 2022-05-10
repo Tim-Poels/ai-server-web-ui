@@ -1,2 +1,1 @@
-# ai-server-web-ui
-TBD
+# AI Bootcamp Training tool
