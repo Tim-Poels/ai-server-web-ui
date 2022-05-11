@@ -1,0 +1,46 @@
+
+
+/**********************
+Input style
+***********************/
+
+.input-title {
+  font-family: 'poppins', sans-serif;
+}
+
+.input-line {
+  height: 2px;
+  width: 262px;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.input-field {
+  margin-top:1rem;
+  outline: none;
+  width: 262px;
+}
+
+
+/**********************
+Buttons
+***********************/
+
+
+.submitButton {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: 'poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  transition: 0.4s;
+}
+
+.submitButton:hover {
+background-color: #65C0CE;
+}
