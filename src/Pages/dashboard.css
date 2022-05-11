@@ -79,8 +79,12 @@ h2 {
   justify-content: space-around;
 }
 .content {
-  width: 65%;
+  width: 45%;
   height: 100%;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  margin-left: 5vw;
+  margin-right: 0;
 }
 a {
   text-decoration: none;

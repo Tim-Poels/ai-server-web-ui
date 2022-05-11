@@ -1,0 +1,13 @@
+/*
+The logo in the login page
+*/
+
+.login-imag {
+  height: 30vh;
+  width: auto;
+}
+
+.login-icons {
+  margin-right: 0.5vh;
+  margin-top: 0.5vh;
+}
