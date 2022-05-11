@@ -86,3 +86,7 @@ h2 {
   margin-left: 5vw;
   margin-right: 0;
 }
+a {
+  text-decoration: none;
+  color: black;
+}

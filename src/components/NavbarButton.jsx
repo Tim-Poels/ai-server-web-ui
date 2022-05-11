@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import './dashboard.css';
+import '../Pages/dashboard.css';
 
 const NavbarButton = (props) => {
     const buttonText = props.text;

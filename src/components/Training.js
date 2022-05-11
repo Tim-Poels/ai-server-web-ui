@@ -12,7 +12,7 @@ function Training({ title }) {
         <TrainingInput title={"DockerHub image slug"} placeholder={"DockerHub_username/image_name"} />
         <TrainingInput title={"Volume"} placeholder={"/output"} />
         <ButtonCont>
-        <button className='submitButton'>Submit</button>
+          <button className='submitButton'>Submit</button>
         </ButtonCont>
       </InputCont>
     </Wrapper>
