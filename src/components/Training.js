@@ -12,7 +12,7 @@ function Training({ title }) {
         <Input title={"DockerHub image slug"} placeholder={"DockerHub_username/image_name"} />
         <Input title={"Volume"} placeholder={"/output"} />
         <ButtonCont>
-        <button className='submitButton'>Submit</button>
+          <button className='submitButton'>Submit</button>
         </ButtonCont>
       </InputCont>
     </Wrapper>
@@ -26,8 +26,8 @@ export default Training
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 604px;
-  width: 684px;
+  height: 450px;
+  width: 550px;
   box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
   padding: 20px;
 `;

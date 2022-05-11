@@ -2,7 +2,8 @@ import React from 'react';
 import './dashboard.css';
 import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
-import NavbarButton from './NavbarButton';
+import NavbarButton from '../components/NavbarButton';
+import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
 const Dashboard = (props) => {
     //The message is updated via props
@@ -26,12 +27,18 @@ const Dashboard = (props) => {
                 </div>
                 <div className="content-and-navbar-cont">
                     <div className="navbar">    
+                        <Link to="launcher">
                             <NavbarButton text={"Training Launcher"}/>
+                        </Link>
+                        <Link to="queue">
                             <NavbarButton text={"Training Queue"} />
+                        </Link>
+                        <Link to="past">
                             <NavbarButton text={"Past Trainings"} />
+                        </Link>
                     </div>
                     <div className="content">
-                        
+                        <Outlet />
                     </div>
                 </div>
             </div>
