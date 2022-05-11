@@ -1,6 +1,6 @@
 import React from 'react';
 import '../training.css';
-import TrainingInput from './TrainingInput';
+import TrainingInput from './TrainingInput.js';
 import styled from 'styled-components';
 
 
@@ -26,7 +26,7 @@ export default Training
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 494px;
+  height: 55vh;
   width: 40vw;
   box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
   padding: 30px;

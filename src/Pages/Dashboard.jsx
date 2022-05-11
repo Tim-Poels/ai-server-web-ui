@@ -6,6 +6,8 @@ import NavbarButton from '../components/NavbarButton.jsx';
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 import Training from '../components/Training.js';
 
+
+
 const Dashboard = (props) => {
     //The message is updated via props
     const footerMessage = "Any issue? Contact your coach!"
@@ -41,7 +43,6 @@ const Dashboard = (props) => {
                     </div>
                     <div className="content">
                         <Outlet />
-                        <Training title={"Training Launcher"} />
                     </div>
                 </div>
             </div>
