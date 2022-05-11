@@ -81,6 +81,8 @@ h2 {
 .content {
   width: 45%;
   height: 100%;
-  margin-top: 58px;
-  margin-left: 58px;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  margin-left: 5vw;
+  margin-right: 0;
 }
