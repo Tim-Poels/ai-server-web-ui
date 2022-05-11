@@ -75,6 +75,8 @@ h2 {
   border-right: 2px solid black;
 }
 .content {
-  width: 65%;
+  width: 45%;
   height: 100%;
+  margin-top: 58px;
+  margin-left: 58px;
 }

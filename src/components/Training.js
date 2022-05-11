@@ -1,6 +1,6 @@
 import React from 'react';
 import '../training.css';
-import Input from './TrainingInput';
+import TrainingInput from './TrainingInput';
 import styled from 'styled-components';
 
 
@@ -9,8 +9,8 @@ function Training({ title }) {
     <Wrapper>
       <BoxTitle>{title}</BoxTitle>
       <InputCont>
-        <Input title={"DockerHub image slug"} placeholder={"DockerHub_username/image_name"} />
-        <Input title={"Volume"} placeholder={"/output"} />
+        <TrainingInput title={"DockerHub image slug"} placeholder={"DockerHub_username/image_name"} />
+        <TrainingInput title={"Volume"} placeholder={"/output"} />
         <ButtonCont>
         <button className='submitButton'>Submit</button>
         </ButtonCont>
@@ -26,10 +26,10 @@ export default Training
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 604px;
-  width: 684px;
+  height: 494px;
+  width: 584px;
   box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
-  padding: 20px;
+  padding: 30px;
 `;
 
 const BoxTitle = styled.h2`
@@ -39,16 +39,15 @@ const BoxTitle = styled.h2`
   font-style: normal;
   font-size: 36px;
   font-weight: 600;
-  line-height: 54px;
+  line-height: 28px;
   `;
 
 const InputCont = styled.div`
   display:flex;
   flex-direction: column;
   height: 500px;
-  justify-content: space-around;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  justify-content: space-between;
+  margin-top: 80px;
   `;
 
 const ButtonCont = styled.div`

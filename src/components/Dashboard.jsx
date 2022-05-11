@@ -2,6 +2,7 @@ import React from 'react';
 import './dashboard.css';
 import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
+import Training from './Training';
 
 const Dashboard = (props) => {
     //The message is updated via props
@@ -25,7 +26,7 @@ const Dashboard = (props) => {
                 </div>
                 <div className="content-and-navbar-cont">
                     <div className="navbar"></div>
-                    <div className="content"></div>
+                    <div className="content"><Training title={"Training Launcher"} /></div>
                 </div>
             </div>
             <div className="footer center">
