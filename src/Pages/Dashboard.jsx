@@ -4,8 +4,7 @@ import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
 import NavbarButton from '../components/NavbarButton';
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
-import Training from './Training';
-import NavbarButton from './NavbarButton';
+import Training from '../components/Training';
 
 const Dashboard = (props) => {
     //The message is updated via props
@@ -42,7 +41,6 @@ const Dashboard = (props) => {
                     </div>
                     <div className="content">
                         <Outlet />
-                        <Training title={"Training Launcher"} />
                     </div>
                 </div>
             </div>
