@@ -29,31 +29,35 @@
 }
 .header {
   height: 20%;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   display: flex;
-  position: relative;
+  /* position: relative; */
 }
 .title {
-  width: 40%;
+  /* width: 40%; */
+  width: 25%;
   display: flex;
   justify-content: flex-end;
   padding-bottom: 10px;
   padding-right: 10px;
   align-items: flex-end;
+  text-align: end;
+  border-bottom: 2px solid black;
 }
 .log-out-container {
-  width: 60%;
+  width: 65%;
+  border-bottom: 2px solid black;
 }
 h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
+.logo-container {
+  width: 10%;
+}
 .logo {
-  z-index: 1;
-  position: absolute;
-  top: 17px;
-  left: -22px;
-  height: 120px;
+  width: 125%;
+  margin-top: 5px;
 }
 .log-out-container {
   display: flex;
@@ -66,11 +70,11 @@ h2 {
   display: flex;
 }
 .navbar {
-  width: 40%;
+  width: 35%;
   height: 100%;
   border-right: 2px solid black;
 }
 .content {
-  width: 60%;
+  width: 65%;
   height: 100%;
 }

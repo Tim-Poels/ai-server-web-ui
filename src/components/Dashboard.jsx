@@ -15,7 +15,9 @@ const Dashboard = (props) => {
             <div className="main-container">
                 <div className="header">
                     {/* Fix this witout position absolute, does not work for smaller screens <1040 px*/}
-                    <img className="logo" src={logo} alt="beCode logo"></img>
+                    <div className='logo-container'>
+                        <img className="logo" src={logo} alt="beCode logo"></img>
+                    </div>
                     <div className="title"><h2>Welcome, {userName}</h2></div>
                     <div className="log-out-container">
                         <a href="#"><BiLogOut></BiLogOut></a>
