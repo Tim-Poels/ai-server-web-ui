@@ -72,7 +72,11 @@ h2 {
 .navbar {
   width: 35%;
   height: 100%;
+  padding: 1rem 2rem;
   border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .content {
   width: 65%;
