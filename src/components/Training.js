@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 494px;
-  width: 584px;
+  width: 40vw;
   box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
   padding: 30px;
 `;
