@@ -2,10 +2,9 @@ import React from 'react';
 import './dashboard.css';
 import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
-import NavbarButton from '../components/NavbarButton';
+import NavbarButton from '../components/NavbarButton.jsx';
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
-import Training from './Training';
-import NavbarButton from './NavbarButton';
+import Training from '../components/Training.js';
 
 const Dashboard = (props) => {
     //The message is updated via props

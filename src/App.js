@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Dashboard from './Pages/Dashboard';
 import ErrorPage from './Pages/ErrorPage';
 import Training from './components/Training';
+import Login from './components/Login/Login.js';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         </Route>
 
 
-        <Route index element={<div>Here will come the logins</div>} />
+        <Route index element={<Login />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
