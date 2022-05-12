@@ -14,7 +14,7 @@ function TrainingInput({ title, placeholder }) {
   }
 
   return (
-    <div >
+    <div className='input-field-div'>
       <h3 className='input-title'>{title}</h3>
       <input className='input-field' placeholder={placeholder} style={{ border: "none" }} onClick={coloredLine} onPointerLeave={blackLine}></input>
       <div className='input-line'  ref={lineRef}></div>
