@@ -3,10 +3,12 @@ import styled from "styled-components";
 import LoginContainer from "./LoginContainer.js"
 import "./login.css"
 
-export default function Login() {
+export default function Login(props) {
+
+
 	return (
 		<LoginPage>
-			<LoginContainer />
+			<LoginContainer user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
 		</LoginPage>
 	);
 }

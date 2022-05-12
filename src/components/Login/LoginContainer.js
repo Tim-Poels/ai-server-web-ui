@@ -6,16 +6,16 @@ import LoginForm from "./LoginForm.js";
 import LoginFooter from "./LoginFooter.js";
 import LoginGitLink from "./LoginGitLink.js";
 
-export default function LoginContainer() {
-  return (
+export default function LoginContainer(props) {
+	return (
 		<LoginContainerDiv>
 			<LoginLogo />
 			<LoginBackground>
 				<LoginTitle />
-				<LoginForm />
-        <LoginFooter />
+				<LoginForm user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
+				<LoginFooter />
 			</LoginBackground>
-      <LoginGitLink />
+			<LoginGitLink />
 		</LoginContainerDiv>
 	);
 }

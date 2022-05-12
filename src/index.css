@@ -8,6 +8,13 @@
   text-align: center;
 }
 
-.content{
+.content {
   width: 80%;
+}
+.login-input-field {
+  font-family: "Poppins", sans-serif;
+  width: 30vh;
+  outline: none;
+  color: black;
+  border: none;
 }
