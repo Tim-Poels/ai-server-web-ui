@@ -1,5 +1,5 @@
 import React from 'react';
-import '../training.css';
+import './training.css';
 import TrainingInput from './TrainingInput.js';
 import styled from 'styled-components';
 

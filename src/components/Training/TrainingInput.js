@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import '../training.css';
+import './training.css';
 
 function TrainingInput({ title, placeholder }) {
 
