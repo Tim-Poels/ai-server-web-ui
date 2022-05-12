@@ -1,29 +1,119 @@
-import React from "react";
+import { useRef, useState, useEffect } from 'react';
 import styled from "styled-components";
-import LoginInput from "./LoginInput.js";
 import { BiAt, BiCheckShield } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
+	const LOGIN_URL = "http://api.ai-server.becode.org/api/auth"
+
+	//for redirecting after auth
+	const navigate = useNavigate();
+
+	//styling
+	const lineRef = useRef();
+	const coloredLine = () => {
+		lineRef.current.style.backgroundColor = "#65C0CE";
+	};
+	const blackLine = () => {
+		lineRef.current.style.backgroundColor = "black";
+	};
+
+	//code for setting username and password <------ is this a safe way to store password? 
+	/*const [user, setUser] = useState('');*/
+	const [pwd, setPwd] = useState('');
+
+	//code for setting error messages above the form
+	const errRef = useRef();
+	const [errMsg, setErrMsg] = useState('');
+	useEffect(() => {
+		setErrMsg('');
+	}, [props.user, pwd])
+
+	//state for JWT
+	/*const [JWT, setJWT] = useState('');*/
+
+
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(props.user)
+		console.log(pwd)
+		fetch(LOGIN_URL, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username: props.user,
+				password: pwd
+			})
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data.jwt)
+				if (data.jwt) {
+					props.setJWT(data.jwt)
+					navigate("/dashboard", { replace: true });
+				}
+				else {
+					setErrMsg('Login Failed');
+				}
+
+			})
+			.catch((err) => {
+				console.error("Error:", err)
+			})
+	}
+
 	return (
 		<LoginDiv>
-			<EmailDiv>
-				<BiAt className="login-icons" />
-				<LoginInput
-					placeholder="your-name@becode.org"
-					textString="Email (@becode.org)"
-				/>
-			</EmailDiv>
-			<PasswordDiv>
-				<BiCheckShield className="login-icons" />
-				<LoginInput placeholder="***********" textString="Password" />
-			</PasswordDiv>
-			<ButtonDiv>
-				<div>
-					<RememberMe type="checkbox" name="checkbox" id="checkbox" />
-					<Label HTMLfor="checkbox"> Remember me</Label>
-				</div>
-				<LoginButton type="submit" value="Login" />
-			</ButtonDiv>
+			<p ref={errRef}>{errMsg}</p>
+			<form onSubmit={handleSubmit}>
+				<EmailDiv>
+					<BiAt className="login-icons" />
+					<Adiv>
+						<Text>Email (@becode.org)</Text>
+						<input
+							className="login-input-field"
+							type="text"
+							name="username"
+							placeholder="your-name@becode.org"
+							onChange={(e) => props.setUser(e.target.value)}
+							required
+							onClick={coloredLine}
+							onPointerLeave={blackLine}
+						/>
+						<Bdiv ref={lineRef}></Bdiv>
+					</Adiv>
+
+				</EmailDiv>
+				<PasswordDiv>
+					<BiCheckShield className="login-icons" />
+
+					<Adiv>
+						<Text>Password</Text>
+						<input
+							className="login-input-field"
+							type="password"
+							name="password"
+							placeholder="***********"
+							onChange={(e) => setPwd(e.target.value)}
+							required
+							onClick={coloredLine}
+							onPointerLeave={blackLine}
+						/>
+						<Bdiv ref={lineRef}></Bdiv>
+					</Adiv>
+
+				</PasswordDiv>
+				<ButtonDiv>
+					<div>
+						<RememberMe type="checkbox" name="checkbox" id="checkbox" />
+						<Label HTMLfor="checkbox"> Remember me</Label>
+					</div>
+					<LoginButton type="submit" />
+				</ButtonDiv>
+			</form>
 		</LoginDiv>
 	);
 }
@@ -39,6 +129,10 @@ const LoginDiv = styled.div`
 `;
 
 //the form
+const Adiv = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 //email
 const EmailDiv = styled.div`
 	width: 40vh;
@@ -102,4 +196,13 @@ const LoginButton = styled.input`
 	font-weight: bolder;
 	color: white;
 	background-color: #319b3f;
+`;
+const Text = styled.p`
+	font-family: "Poppins", sans-serif;
+`;
+const Bdiv = styled.div`
+	height: 0.2vh;
+	width: 30vh;
+	background-color: black;
+	transition: 0.4s;
 `;

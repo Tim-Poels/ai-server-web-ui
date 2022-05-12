@@ -5,6 +5,7 @@ import Training from "./components/Training/Training.js";
 import Login from './components/Login/Login.js';
 import TrainingQueue from './components/Training/TrainingQueue.js';
 import PastTraining from "./components/Training/PastTraining.js";
+import React, { useState } from 'react';
 
 //API will give the data on tringing queue here
 const trainingQueue = {
@@ -49,11 +50,14 @@ const trainingPast = {
 	],
 };
 
+
 function App() {
+  const [user, setUser] = useState('');
+  const [JWT, setJWT] = useState('');
   return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/dashboard" element={<Dashboard />}>
+				<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
 					<Route index element={<Training />} />
 					<Route
 						path="launcher"
@@ -69,7 +73,7 @@ function App() {
 					/>
 				</Route>
 
-				<Route index element={<Login />} />
+				<Route index element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</BrowserRouter>

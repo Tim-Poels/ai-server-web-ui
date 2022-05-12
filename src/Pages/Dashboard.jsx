@@ -13,7 +13,7 @@ const Dashboard = (props) => {
     //The message is updated via props
     const footerMessage = "Any issue? Contact your coach!"
     //The username will be updated via Props
-    const userName = "Kristine"
+    const userName = props.user
 
   return (
 		<div className="body-container center">
