@@ -4,7 +4,7 @@ import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
 import NavbarButton from '../components/NavbarButton.jsx';
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
-import Training from '../components/Training.js';
+import Training from '../components/Training/Training.js';
 
 
 

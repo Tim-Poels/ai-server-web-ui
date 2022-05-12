@@ -44,3 +44,17 @@ Buttons
 .submitButton:hover {
 background-color: #65C0CE;
 }
+
+/******************
+Training queue
+******************/
+
+.queue {
+  display: flex;
+	flex-direction: column;
+	height: 90%;
+	justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+	
