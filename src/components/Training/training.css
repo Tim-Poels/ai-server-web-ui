@@ -10,7 +10,7 @@ Input style
 
 .input-line {
   height: 2px;
-  width: 262px;
+  width: 100%;
   background-color: black;
   transition: 0.4s;
 }
@@ -18,7 +18,13 @@ Input style
 .input-field {
   margin-top:1rem;
   outline: none;
-  width: 262px;
+  width: 75%;
+}
+
+.input-field-div {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%
 }
 
 
@@ -30,7 +36,7 @@ Buttons
 .submitButton {
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: #319b3f;
   color: white;
   border: none;
   border-radius: 14px;

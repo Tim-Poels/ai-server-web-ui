@@ -6,15 +6,12 @@ const NavbarButton = (props) => {
     const buttonText = props.text;
     //the button text comes in via props
     //state for clicked button ? and change the color of the button that is used
- return (
-        
-            <NavBtn>
-                <p>
-                {buttonText}
-                </p>
-            </NavBtn>
-        
- )
+    let thisClass = "tab" + props.nmbr;
+    return (
+		<NavBtn className={thisClass}>
+			<p>{buttonText}</p>
+		</NavBtn>
+     );
 }
 
 export default NavbarButton;
