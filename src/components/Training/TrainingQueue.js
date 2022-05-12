@@ -7,7 +7,7 @@ export default function TrainingQueue({trainings}) {
   return (
 		<Wrapper>
 			<BoxTitle>Training Queue</BoxTitle>
-			<Queue />
+			<Queue trainings={trainings}/>
 		</Wrapper>
 	);
 }

@@ -52,8 +52,9 @@ Training queue
 .queue {
   display: flex;
 	flex-direction: column;
-	height: 500px;
-	justify-content: space-between;
-	margin-top: 80px;
+	height: 90%;
+	justify-content: center;
+  align-items: center;
+  margin-top: 10%;
 }
 	
