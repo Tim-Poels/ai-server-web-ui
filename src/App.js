@@ -4,9 +4,10 @@ import ErrorPage from './Pages/ErrorPage.jsx';
 import Training from "./components/Training/Training.js";
 import Login from './components/Login/Login.js';
 import TrainingQueue from './components/Training/TrainingQueue.js';
+import PastTraining from "./components/Training/PastTraining.js";
 
 //API will give the data on tringing queue here
-const trainings = {
+const trainingQueue = {
 	data: [
 		{
 			positionInQueue: "1",
@@ -25,25 +26,54 @@ const trainings = {
 		},
 	],
 };
+const trainingPast = {
+	data: [
+		{
+			containerId: "container_id",
+			status: "Done",
+			artifactsUrl: "artifact_url",
+			finishDate: "3/2/1 - 12:39:56",
+		},
+		{
+			containerId: "container_id",
+			status: "Done",
+			artifactsUrl: "artifact_url",
+			finishDate: "4/2/0 - 17:29:36",
+		},
+		{
+			containerId: "container_id",
+			status: "Done",
+			artifactsUrl: "artifact_url",
+			finishDate: "1/2/3 - 04:32:51",
+		},
+	],
+};
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/dashboard" element={<Dashboard />}>
+					<Route index element={<Training />} />
+					<Route
+						path="launcher"
+						element={<Training title={"Training Launcher"} />}
+					/>
+					<Route
+						path="queue"
+						element={<TrainingQueue trainingQueue={trainingQueue} />}
+					/>
+					<Route
+						path="past"
+						element={<PastTraining trainingPast={trainingPast} />}
+					/>
+				</Route>
 
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Training />} />
-          <Route path="launcher" element={<Training title={"Training Launcher"} />} />
-          <Route path="queue" element={<TrainingQueue trainings={trainings}/>} />
-          <Route path="past" element={<div>Here will come the PAST</div>} />
-        </Route>
-
-
-        <Route index element={<Login />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+				<Route index element={<Login />} />
+				<Route path="*" element={<ErrorPage />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

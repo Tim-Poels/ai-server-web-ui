@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import Queue from "./Queue.js"
+import React from "react";
+import styled from "styled-components";
+import Past from "./Past.js";
 import "./training.css";
 
-export default function TrainingQueue({trainingQueue}) {
-  return (
+export default function PastTraining({ trainingPast }) {
+	return (
 		<Wrapper>
-			<BoxTitle>Training Queue</BoxTitle>
-			<Queue trainingQueue={trainingQueue}/>
+			<BoxTitle>Past Trainings</BoxTitle>
+			<Past trainingPast={trainingPast} />
 		</Wrapper>
 	);
 }

@@ -1,38 +1,40 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import colorChange from "./colorChange.js"
+import colorChange from "./colorChange.js";
 
-export default function Queue({ trainingQueue }) {
-  useEffect(() => {
+export default function Past({ trainingPast }) {
+	useEffect(() => {
 		colorChange();
 	});
-	if (trainingQueue.data.length === 0) {
+	if (trainingPast.data.length === 0) {
 		return (
 			<div className="queue">
-				<Subtitle>There are 0 Trainings in queue</Subtitle>
+				<Subtitle>You have 0 trainings done</Subtitle>
 			</div>
 		);
 	} else {
 		let queue = [];
-		for (let i = 0; i < trainingQueue.data.length; i++) {
-			let data = trainingQueue.data[i];
+		for (let i = 0; i < trainingPast.data.length; i++) {
+			let data = trainingPast.data[i];
 			queue.push(
 				<Bdiv key={i} id={i} className={"background-change"}>
-					<Cdiv>{data.positionInQueue}</Cdiv>
-					<Cdiv>{data.dockerImageName}</Cdiv>
-					<Cdiv>{data.dockerVolume}</Cdiv>
+					<Cdiv>{data.containerId}</Cdiv>
+					<Cdiv>{data.status}</Cdiv>
+					<Cdiv>{data.artifactsUrl}</Cdiv>
+					<Cdiv>{data.finishDate}</Cdiv>
 				</Bdiv>
 			);
 		}
 		return (
 			<div className="queue">
 				<AmountQueued>
-					There are {trainingQueue.data.length} trainings in queue.{" "}
+					You have {trainingPast.data.length} trainings done.{" "}
 				</AmountQueued>
 				<QueueHeader>
-					<Cdiv>Position in Queue</Cdiv>
-					<Cdiv>Docker Image</Cdiv>
-					<Cdiv>Docker Volume</Cdiv>
+					<Cdiv>Container Details</Cdiv>
+					<Cdiv>Status</Cdiv>
+					<Cdiv>artifacts</Cdiv>
+					<Cdiv>finish Date</Cdiv>
 				</QueueHeader>
 				<Adiv>{queue}</Adiv>
 			</div>
@@ -81,7 +83,8 @@ const Bdiv = styled.div`
 `;
 
 const Cdiv = styled.div`
-	width: 33%;
+	width: 25%;
 	text-align: center;
 	font-family: "Poppins", sans-serif;
+  font-size: 15px;
 `;
