@@ -1,1 +1,1 @@
-# AI Bootcamp Training tool
+# AI Training tool
