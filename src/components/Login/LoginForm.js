@@ -40,7 +40,6 @@ export default function LoginForm(props) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.jwt)
 				if (data.jwt) {
 					props.setJWT(data.jwt)
 					navigate("/dashboard", { replace: true });

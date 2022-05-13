@@ -5,7 +5,8 @@ import Training from "./components/Training/Training.js";
 import Login from './components/Login/Login.js';
 import TrainingQueue from './components/Training/TrainingQueue.js';
 import PastTraining from "./components/Training/PastTraining.js";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ProtectedRoutes from './ProtectedRoutes.jsx';
 
 
 
@@ -58,26 +59,43 @@ const trainingPast = {
 function App() {
 	const [user, setUser] = useState('');
 	const [JWT, setJWT] = useState('');
+	//state for authentication purposes
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	useEffect(() => {
+		if (user && JWT) {
+			setLoggedIn(true)
+		}
+		else {
+			setLoggedIn(false)
+		}
+	})
+
+
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
-					<Route index element={<Training jwt={JWT} />} />
-					<Route
-						path="launcher"
-						element={<Training jwt={JWT} />}
-					/>
-					<Route
-						path="queue"
-						element={<TrainingQueue trainingQueue={trainingQueue} />}
-					/>
-					<Route
-						path="past"
-						element={<PastTraining trainingPast={trainingPast} />}
-					/>
+				<Route element={<ProtectedRoutes loggedIn={loggedIn} />}>
+					<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
+						<Route index element={<Training jwt={JWT} />} />
+						<Route
+							path="launcher"
+							element={<Training jwt={JWT} />}
+						/>
+						<Route
+							path="queue"
+							element={<TrainingQueue trainingQueue={trainingQueue} />}
+						/>
+						<Route
+							path="past"
+							element={<PastTraining trainingPast={trainingPast} />}
+						/>
+					</Route>
 				</Route>
 
+
 				<Route index element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
+				<Route path="/" element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</BrowserRouter>

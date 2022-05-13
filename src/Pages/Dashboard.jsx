@@ -3,8 +3,7 @@ import './dashboard.css';
 import logo from './logo-becode.png'
 import { BiLogOut } from 'react-icons/bi'
 import NavbarButton from '../components/NavbarButton.jsx';
-import { Routes, Route, Link, Outlet } from 'react-router-dom'
-import Training from '../components/Training/Training.js';
+import { Navigate, Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
 
 
@@ -28,9 +27,9 @@ const Dashboard = (props) => {
 							<h2>Welcome, {userName}</h2>
 						</div>
 						<div className="log-out-container">
-							<a href="#">
-								<BiLogOut></BiLogOut>
-							</a>
+						<Link to="/"> 
+							<BiLogOut />
+						</Link>
 						</div>
 					</div>
 					<div className="content-and-navbar-cont">
