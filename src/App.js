@@ -5,13 +5,15 @@ import Training from "./components/Training/Training.js";
 import Login from './components/Login/Login.js';
 import TrainingQueue from './components/Training/TrainingQueue.js';
 import PastTraining from "./components/Training/PastTraining.js";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
 
 
 //API will give the data on tringing queue here
+//DUMMY DATA FOR TESTING
+/*
 const trainingQueue = {
 	data: [
 		{
@@ -31,6 +33,8 @@ const trainingQueue = {
 		},
 	],
 };
+*/
+/*
 const trainingPast = {
 	data: [
 		{
@@ -53,11 +57,55 @@ const trainingPast = {
 		},
 	],
 };
-
+*/
 
 function App() {
 	const [user, setUser] = useState('');
 	const [JWT, setJWT] = useState('');
+
+	const [trainingPast, setTrainingPast] = useState({ data: [] })
+	const [trainingQueue, setTrainingQueue] = useState([])
+
+	const requestOptions = {
+		method: 'GET',
+		headers: {
+			"Content-Type": "application/json",
+			"Authorization": `Bearer ${JWT}`
+		},
+	};
+
+	const fetchPastTrainings = () => {
+
+		function showMyData(data) {
+			console.log(data)
+			setTrainingPast(trainingPast.data = data)
+		}
+
+		fetch('http://api.ai-server.becode.org/get_all_training_queue', requestOptions)
+			.then(response => response.json())
+			.then(data =>
+				showMyData(data)
+			)
+	}
+
+	const fetchTrainingQueue = () => {
+
+		fetch('http://api.ai-server.becode.org/get_user_training_queue', requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				setTrainingQueue(data)
+			})
+	}
+	useEffect(() => {
+
+		fetchPastTrainings()
+		fetchTrainingQueue()
+
+	}, [JWT])
+	//Issue here that on login page in the console there are errors because we dont have a JWT yet. however the app is still functional. 
+
+
 	return (
 		<BrowserRouter>
 			<Routes>

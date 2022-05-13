@@ -10,9 +10,8 @@ import styled from 'styled-components';
 
 
 const Dashboard = (props) => {
-    //The message is updated via props
+
     const footerMessage = "Any issue? Contact your coach!"
-    //The username will be updated via Props
     const userName = props.user
 
   return (
