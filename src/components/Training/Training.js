@@ -1,25 +1,95 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./training.css";
-import TrainingInput from "./TrainingInput.js";
 import styled from "styled-components";
 import colorNav from "./ColorNav.js";
 
-function Training() {
-	useEffect(() => {
-		colorNav("tab1")
-	});
+function Training(props) {
+	//styling
+	useEffect(() => colorNav("tab1"));
+	const lineRef = useRef()
+	const coloredLine = () => lineRef.current.style.backgroundColor = "#65C0CE"
+	const blackLine = () => lineRef.current.style.backgroundColor = "black"
+
+
+	const [img, setImg] = useState('')
+	const [volume, setVolume] = useState('/output')
+
+	//code for setting error or success messages above the form
+	const errRef = useRef();
+	const [errMsg, setErrMsg] = useState('');
+
+	const handleSubmit = (e) => {
+		console.log(volume)
+		e.preventDefault();
+
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${props.jwt}`
+			},
+			body: JSON.stringify(
+				{ docker_image_name: img, volume: volume }
+			)
+		};
+
+
+		fetch('http://api.ai-server.becode.org/send_training_to_queue', requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				if ("error" in data) {
+					setErrMsg(data.error)
+				}
+				else if ("success" in data) {
+					setErrMsg(data.success)
+				}
+			})
+			.catch((err) => {
+				console.error("Error:", err)
+			})
+
+	}
+
+
 	return (
 		<Wrapper>
 			<BoxTitle>Training Launcher</BoxTitle>
 			<InputCont>
-				<TrainingInput
-					title={"DockerHub image slug"}
-					placeholder={"DockerHub_username/image_name"}
-				/>
-				<TrainingInput title={"Volume"} placeholder={"/output"} />
-				<ButtonCont>
-					<button className="submitButton">Submit</button>
-				</ButtonCont>
+				<p ref={errRef}>{errMsg}</p>
+				<form onSubmit={handleSubmit}>
+					<div className='input-field-div'>
+						<h3 className='input-title'>DockerHub image slug</h3>
+						<input
+							className='input-field'
+							type="text"
+							onChange={(e) => setImg(e.target.value)}
+							required
+							placeholder="DockerHub_username/image_name"
+							style={{ border: "none" }}
+							onClick={coloredLine}
+							onPointerLeave={blackLine}
+						/>
+						<div className='input-line' ref={lineRef}></div>
+					</div>
+					<div className='input-field-div'>
+						<h3 className='input-title'>Volume</h3>
+						<input
+							className='input-field'
+							type="text"
+							onChange={(e) => setVolume(e.target.value)}
+							placeholder="/output"
+							style={{ border: "none" }}
+							onClick={coloredLine}
+							onPointerLeave={blackLine}
+						/>
+						<div className='input-line' ref={lineRef}></div>
+					</div>
+					<ButtonCont>
+						<button type="submit" className="submitButton">Submit</button>
+					</ButtonCont>
+				</form>
+
 			</InputCont>
 		</Wrapper>
 	);
