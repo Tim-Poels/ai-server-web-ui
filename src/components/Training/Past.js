@@ -52,7 +52,7 @@ const QueueHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	width: 100%;
+	width: 80%;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	border-bottom: 1px solid black;
@@ -69,8 +69,8 @@ const AmountQueued = styled.h2`
 const Adiv = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 60%;
-	width: 100%;
+	height: 50%;
+	width: 80%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 `;
@@ -87,4 +87,5 @@ const Cdiv = styled.div`
 	text-align: center;
 	font-family: "Poppins", sans-serif;
   font-size: 15px;
+  overflow-x:scroll;
 `;

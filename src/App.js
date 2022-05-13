@@ -31,35 +31,21 @@ const trainingQueue = {
 		},
 	],
 };
-const trainingPast = {
-	data: [
-		{
-			containerId: "container_id",
-			status: "Done",
-			artifactsUrl: "artifact_url",
-			finishDate: "3/2/1 - 12:39:56",
-		},
-		{
-			containerId: "container_id",
-			status: "Done",
-			artifactsUrl: "artifact_url",
-			finishDate: "4/2/0 - 17:29:36",
-		},
-		{
-			containerId: "container_id",
-			status: "Done",
-			artifactsUrl: "artifact_url",
-			finishDate: "1/2/3 - 04:32:51",
-		},
-	],
-};
+
+
+
+
+
+
 
 
 function App() {
 	const [user, setUser] = useState('');
 	const [JWT, setJWT] = useState('');
+
 	return (
 		<BrowserRouter>
+
 			<Routes>
 				<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
 					<Route index element={<Training jwt={JWT} />} />
@@ -73,7 +59,7 @@ function App() {
 					/>
 					<Route
 						path="past"
-						element={<PastTraining trainingPast={trainingPast} />}
+						element={<PastTraining  />}
 					/>
 				</Route>
 

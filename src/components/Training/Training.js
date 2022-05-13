@@ -124,7 +124,7 @@ const InputCont = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 80%;
-  width: 75%;
+ 	width: 75%;
 `;
 
 const ButtonCont = styled.div`
