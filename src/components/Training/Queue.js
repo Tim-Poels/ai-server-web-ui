@@ -3,9 +3,12 @@ import styled from "styled-components";
 import colorChange from "./colorChange.js"
 
 export default function Queue({ trainingQueue }) {
-  useEffect(() => {
+
+
+	useEffect(() => {
 		colorChange();
-	});
+	}, []);
+
 	if (trainingQueue.data.length === 0) {
 		return (
 			<div className="queue">

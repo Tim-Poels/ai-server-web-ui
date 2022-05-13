@@ -1,18 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Queue from "./Queue.js"
 import "./training.css";
 import colorNav from "./ColorNav.js";
 
 
-export default function TrainingQueue({trainingQueue}) {
+export default function TrainingQueue(props) {
+	useEffect(() => colorNav("tab2"));
+
+	const [trainingQueue, setTrainingQueue] = useState({ data: [] })
+
 	useEffect(() => {
-		colorNav("tab2")
-	});
-  return (
+		const requestOptions = {
+			method: 'GET',
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${props.jwt}`
+			},
+		};
+
+		fetch('http://api.ai-server.becode.org/get_user_training_queue', requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+				setTrainingQueue(data)
+			})
+	}, [props.jwt])
+
+
+	return (
 		<Wrapper>
 			<BoxTitle>Training Queue</BoxTitle>
-			<Queue trainingQueue={trainingQueue}/>
+			<Queue trainingQueue={trainingQueue} />
 		</Wrapper>
 	);
 }

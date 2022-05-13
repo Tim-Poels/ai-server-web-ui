@@ -1,5 +1,5 @@
-import React, { useEffect,useState } from "react";
-import  useInterval from '../Hook/useInterval.js'
+import React, { useEffect, useState } from "react";
+import useInterval from '../Hook/useInterval.js'
 import styled from "styled-components";
 import Past from "./Past.js";
 import "./training.css";
@@ -7,14 +7,16 @@ import colorNav from "./ColorNav.js";
 
 
 
-export default function PastTraining() {
-	const [trainingPast, setTrainingPast] = useState({data: []})
-	let myJWT = document.cookie
+export default function PastTraining(props) {
+	const [trainingPast, setTrainingPast] = useState({ data: [] })
+
+	//let myJWT = document.cookie
+	let myJWT = props.jwt
 	const delay = 3000
 	useEffect(() => {
 		colorNav("tab3")
-	
-	},[]);
+
+	}, []);
 
 	useInterval(
 		() => {
@@ -25,25 +27,25 @@ export default function PastTraining() {
 					"Authorization": `Bearer ${myJWT}`
 				},
 			};
-		
-			function showMyData(data){
+
+			function showMyData(data) {
 				console.log(data)
 				setTrainingPast(trainingPast.data = data)
-			}	
-			
+			}
+
 			fetch('http://api.ai-server.becode.org/get_all_training_queue', requestOptions)
-			.then(response => response.json())
-			.then(data =>
-				showMyData(data)
+				.then(response => response.json())
+				.then(data =>
+					showMyData(data)
 				)
-		
+
 		},
 		delay
-	  )
+	)
 
 
 	return (
-		
+
 		<Wrapper>
 			<BoxTitle>Past Trainings</BoxTitle>
 			<Past trainingPast={trainingPast} />

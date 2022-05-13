@@ -8,37 +8,6 @@ import PastTraining from "./components/Training/PastTraining.js";
 import React, { useState } from 'react';
 
 
-
-
-
-//API will give the data on tringing queue here
-const trainingQueue = {
-	data: [
-		{
-			positionInQueue: "1",
-			dockerImageName: "This is name 1",
-			dockerVolume: "11 MB",
-		},
-		{
-			positionInQueue: "2",
-			dockerImageName: "Name 2",
-			dockerVolume: "45 GB",
-		},
-		{
-			positionInQueue: "3",
-			dockerImageName: "idk im tired 3",
-			dockerVolume: "69,420 TB",
-		},
-	],
-};
-
-
-
-
-
-
-
-
 function App() {
 	const [user, setUser] = useState('');
 	const [JWT, setJWT] = useState('');
@@ -55,11 +24,11 @@ function App() {
 					/>
 					<Route
 						path="queue"
-						element={<TrainingQueue trainingQueue={trainingQueue} />}
+						element={<TrainingQueue jwt={JWT} />}
 					/>
 					<Route
 						path="past"
-						element={<PastTraining  />}
+						element={<PastTraining jwt={JWT} />}
 					/>
 				</Route>
 
