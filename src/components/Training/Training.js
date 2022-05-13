@@ -29,7 +29,7 @@ function Training(props) {
 				"Authorization": `Bearer ${props.jwt}`
 			},
 			body: JSON.stringify(
-				{ docker_image_name: img, volume: volume }
+				{ docker_image_name: img.toLowerCase(), volume: volume }
 			)
 		};
 
