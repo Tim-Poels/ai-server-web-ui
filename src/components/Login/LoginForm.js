@@ -11,33 +11,23 @@ export default function LoginForm(props) {
 
 	//styling
 	const lineRef = useRef();
-	const coloredLine = () => {
-		lineRef.current.style.backgroundColor = "#65C0CE";
-	};
-	const blackLine = () => {
-		lineRef.current.style.backgroundColor = "black";
-	};
+	const coloredLine = () => lineRef.current.style.backgroundColor = "#65C0CE";
+	const blackLine = () => lineRef.current.style.backgroundColor = "black";
 
 	//code for setting username and password <------ is this a safe way to store password? 
-	/*const [user, setUser] = useState('');*/
 	const [pwd, setPwd] = useState('');
 
 	//code for setting error messages above the form
 	const errRef = useRef();
 	const [errMsg, setErrMsg] = useState('');
+
 	useEffect(() => {
 		setErrMsg('');
 	}, [props.user, pwd])
 
-	//state for JWT
-	/*const [JWT, setJWT] = useState('');*/
-
-
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(props.user)
-		console.log(pwd)
 		fetch(LOGIN_URL, {
 			method: "POST",
 			headers: {
@@ -111,7 +101,7 @@ export default function LoginForm(props) {
 						<RememberMe type="checkbox" name="checkbox" id="checkbox" />
 						<Label HTMLfor="checkbox"> Remember me</Label>
 					</div>
-					<LoginButton type="submit" />
+					<LoginButton type="submit" value="Login" />
 				</ButtonDiv>
 			</form>
 		</LoginDiv>
@@ -149,28 +139,6 @@ const PasswordDiv = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	padding-bottom: 2vh;
-`;
-
-const AnotherPasswordDiv = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
-
-const PasswordText = styled.p`
-	font-family: "Poppins", sans-serif;
-`;
-
-const PasswordInput = styled.input`
-	font-family: "Poppins", sans-serif;
-	width: 30vh;
-	outline: none;
-`;
-
-const Div = styled.div`
-	height: 0.2vh;
-	width: 30vh;
-	background-color: black;
-	transition: 0.4s;
 `;
 
 //remember me and button
