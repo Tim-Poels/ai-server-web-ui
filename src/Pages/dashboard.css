@@ -29,12 +29,10 @@
 }
 .header {
   height: 20%;
-  /* border-bottom: 2px solid black; */
   display: flex;
-  /* position: relative; */
+  padding-right: 30px;
 }
 .title {
-  /* width: 40%; */
   width: 25%;
   display: flex;
   justify-content: flex-end;
@@ -71,19 +69,19 @@ h2 {
   display: flex;
 }
 .navbar {
-  width: 35%;
+  width: 30%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .content {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 100%;
+  padding: 20px 30px;
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-top: 30px;
 }
 a {
   text-decoration: none;

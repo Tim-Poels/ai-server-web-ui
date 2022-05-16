@@ -75,7 +75,7 @@ const Adiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1rem;
+  padding: 1rem 50px;
 `;
 
 const Bdiv = styled.div`

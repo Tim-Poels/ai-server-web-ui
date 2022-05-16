@@ -56,8 +56,7 @@ export default function PastTraining(props) {
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 110%;
-	margin-left: 50px;
+	height: 100%;
 	width: 100%;
 	box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
 	padding: 20px;
