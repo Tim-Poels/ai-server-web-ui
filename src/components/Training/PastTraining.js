@@ -10,35 +10,44 @@ import colorNav from "./ColorNav.js";
 export default function PastTraining(props) {
 	const [trainingPast, setTrainingPast] = useState({ data: [] })
 
+	const fetchMyPast = () => {
+		const requestOptions = {
+			method: 'GET',
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${myJWT}`
+			},
+		};
+
+		function showMyData(data) {
+			console.log(data)
+			setTrainingPast(trainingPast.data = data)
+		}
+
+		fetch('http://api.ai-server.becode.org/get_all_training_queue', requestOptions)
+			.then(response => response.json())
+			.then(data =>
+				showMyData(data)
+			)
+	}
+
 	//let myJWT = document.cookie
 	let myJWT = props.jwt
-	const delay = 3000
+	const delay = 30000
+
+
+
+
+
 	useEffect(() => {
 		colorNav("tab3")
+		fetchMyPast()
 
 	}, []);
 
 	useInterval(
 		() => {
-			const requestOptions = {
-				method: 'GET',
-				headers: {
-					"Content-Type": "application/json",
-					"Authorization": `Bearer ${myJWT}`
-				},
-			};
-
-			function showMyData(data) {
-				console.log(data)
-				setTrainingPast(trainingPast.data = data)
-			}
-
-			fetch('http://api.ai-server.becode.org/get_all_training_queue', requestOptions)
-				.then(response => response.json())
-				.then(data =>
-					showMyData(data)
-				)
-
+			fetchMyPast()
 		},
 		delay
 	)
