@@ -45,6 +45,7 @@ const Dashboard = (props) => {
 								</Link>
 							</div>
 						</div>
+						<div className='horLine'></div>
 						<div className="content-and-navbar-cont">
 							<div className="navbar">
 								<Adiv>
@@ -59,11 +60,9 @@ const Dashboard = (props) => {
 									</Link>
 								</Adiv>
 								<Bdiv>
-									<Cdiv>
-										<Ddiv className="tab1"></Ddiv>
-										<Ddiv className="tab2"></Ddiv>
-										<Ddiv className="tab3"></Ddiv>
-									</Cdiv>
+									<Ddiv className="tab1"></Ddiv>
+									<Ddiv className="tab2"></Ddiv>
+									<Ddiv className="tab3"></Ddiv>
 								</Bdiv>
 							</div>
 							<div className="content">
@@ -83,31 +82,28 @@ const Dashboard = (props) => {
 export default Dashboard;
 
 const Adiv = styled.div`
-  height: 70%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 1rem 50px;
-`;
-
-const Bdiv = styled.div`
-    height: 100%;
-    width: 0;
-    border: 1px solid black;
-    background-color: black;
-    align-items: center;
-`;
-
-const Cdiv = styled.div`
 	height: 100%;
-	width: 0;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	padding-top: 5.3rem;
-	padding-bottom: 5.3rem;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 25%;
+	padding-bottom: 25%;
+`;
+
+const Bdiv = styled.div`
+	height: 100%;
+	width: 0;
+	border: 1px solid black;
+	background-color: black;
 	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding-bottom: 25%;
+	padding-top: 25%;
 `;
 
 const Ddiv = styled.div`
