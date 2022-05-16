@@ -14,10 +14,9 @@ function App() {
 
 	return (
 		<BrowserRouter>
-
 			<Routes>
-				<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
-					<Route index element={<Training jwt={JWT} />} />
+			<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
+				<Route index element={<Training jwt={JWT} />} />
 					<Route
 						path="launcher"
 						element={<Training jwt={JWT} />}
@@ -34,7 +33,7 @@ function App() {
 
 				<Route index element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
 				<Route path="*" element={<ErrorPage />} />
-			</Routes>
+			</Routes>		
 		</BrowserRouter>
 	);
 }
