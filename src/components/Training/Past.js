@@ -73,6 +73,7 @@ const Adiv = styled.div`
 	width: 80%;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	
 `;
 
 const Bdiv = styled.div`
