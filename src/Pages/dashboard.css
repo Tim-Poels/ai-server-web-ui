@@ -23,10 +23,16 @@
 	  width: 50vh;
     margin-top: 30vh;
     margin-bottom: 10vh;
+    border-radius: 15%;
+  }
+  33% {
+    height: 60vh;
+	  width: 50vh;
   }
   100% {
     width: 80vw;
     height: 95vh;
+    border-radius: 20px;
   }
 }
 
@@ -35,16 +41,14 @@
   height: 95vh;
   background-color: white;
   border-radius: 20px;
-  animation-name: stretch;
-  animation-duration: 2s;  
-  animation-iteration-count: normal;
+  animation: stretch 1.25s normal;
 }
 
 @keyframes opacity {
   0% {
     opacity: 0;
   }
-  25% {
+  50% {
     opacity: 0;
   }
   100% {
@@ -56,16 +60,28 @@
   height: 90%;
   padding: 2rem 2rem 0rem 2rem;
   animation-name: opacity;
-  animation-duration: 2s;  
+  animation-duration: 1.25s;  
   animation-iteration-count: normal;
 }
 
+@keyframes footer {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .footer {
   height: 10%;
   background-color: #ececec;
   font-family: "Source Code Pro", monospace;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  animation: footer 1.25s normal;
 }
 .header {
   height: 15%;

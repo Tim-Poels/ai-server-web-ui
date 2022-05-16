@@ -11,3 +11,12 @@ The logo in the login page
   margin-right: 0.5vh;
   margin-top: 0.5vh;
 }
+
+@keyframes dissapear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

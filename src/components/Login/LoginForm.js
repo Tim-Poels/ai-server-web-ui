@@ -40,10 +40,18 @@ export default function LoginForm(props) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.jwt)
 				if (data.jwt) {
-					props.setJWT(data.jwt)
-					navigate("/dashboard", { replace: true });
+					let container = document.querySelector(".make-dissapear")
+					
+					for (let i = 0; i < container.childNodes.length; i++) {
+						container.childNodes[i].style.animation = "dissapear 0.25s normal";
+					}
+					
+					setTimeout(() => {
+						props.setJWT(data.jwt);
+						navigate("/dashboard", { replace: true });
+					}, "250");
+					
 				}
 				else {
 					setErrMsg('Login Failed');
