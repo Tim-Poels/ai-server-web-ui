@@ -61,3 +61,16 @@ Training queue
   /* margin-top: 5%; */
   /* padding: 20px; */
 }
+
+@keyframes navbar-fade-in {
+  0% {
+    background-color: #F5F5F5;
+    color: #B0B0B0;
+    font-weight: normal;
+  }
+  100% {
+    color: white;
+    background-color: #319b3f;
+    font-weight: 600;
+  }
+}

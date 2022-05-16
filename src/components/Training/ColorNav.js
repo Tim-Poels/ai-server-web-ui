@@ -1,6 +1,7 @@
 export default function ColorNav(tabClass) {
   resetAll();
   let tabs = document.getElementsByClassName(tabClass)
+  tabs[0].style.animation = "navbar-fade-in 0.75s normal";
   tabs[0].style.backgroundColor = "#319b3f"
   tabs[0].style.color = "white";
   tabs[0].style.fontWeight = "600";
@@ -16,6 +17,7 @@ const resetAll = () => {
   let tab3 = document.getElementsByClassName("tab3");
   let array = [tab1, tab2, tab3]
   array.forEach(el => {
+    el[0].style.animation = "none";
     el[0].style.backgroundColor = "#F5F5F5";
     el[0].style.color = "#B0B0B0";
     el[0].style.fontWeight = "normal";
