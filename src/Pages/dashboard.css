@@ -19,16 +19,11 @@
 
 @keyframes stretch {
   0% {
-    margin-top: 30vh;
     height: 60vh;
 	  width: 50vh;
+    margin-top: 30vh;
+    margin-bottom: 10vh;
   }
-  /*
-  20% {
-    margin-top: 30vh;
-    height: 60vh;
-	  width: 50vh;
-  }*/
   100% {
     width: 80vw;
     height: 95vh;
