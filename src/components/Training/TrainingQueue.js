@@ -27,24 +27,43 @@ export default function TrainingQueue(props) {
 			})
 	}, [props.jwt])
 
+	if (trainingQueue.data.length === 0) {
+		return (
+			<Wrapper>
 
-	return (
-		<Wrapper>
-			<BoxTitle>Training Queue</BoxTitle>
-			<Queue trainingQueue={trainingQueue} />
-		</Wrapper>
-	);
+				<BoxTitle>Training Launcher</BoxTitle>
+				<Cont>
+					<h3 className="center"> You have 0 trainings in queue</h3>
+				</Cont>
+
+
+			</Wrapper>
+		)
+	}
+	else {
+		return (
+			<Wrapper>
+				<TitleContainer>
+					<SmallTitleContainer>
+						<h1>Training Queue</h1>
+					</SmallTitleContainer>
+					<SmallTitleContainer>
+						<h3>You have {trainingQueue.data.length} trainings in Queue</h3>
+						<h4>Refreshing every 30 seconds</h4>
+					</SmallTitleContainer>
+				</TitleContainer>
+				<Queue trainingQueue={trainingQueue} />
+			</Wrapper>
+		);
+	}
+
 }
 
 const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	width: 100%;
-	box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
-	padding: 20px;
-	padding-left: 40px;
-	padding-right: 30px;
+height: 100%;
+width: 100%;
+box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
+padding: 20px;
 `;
 
 const BoxTitle = styled.h2`
@@ -56,4 +75,20 @@ const BoxTitle = styled.h2`
 	font-size: 36px;
 	font-weight: 600;
 	text-align: center;
+`;
+
+const Cont = styled.div`
+	height: 80%;
+	width: 100%;
+`
+
+const TitleContainer = styled.div`
+	width: 100%;
+	display: flex;
+	height: 15%;
+`;
+
+const SmallTitleContainer = styled.div`
+width: 50%;
+
 `;

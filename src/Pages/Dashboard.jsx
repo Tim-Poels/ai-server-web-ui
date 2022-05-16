@@ -37,7 +37,7 @@ const Dashboard = (props) => {
 								<img className="logo" src={logo} alt="beCode logo"></img>
 							</div>
 							<div className="title">
-								<h2>Welcome, {userName}</h2>
+								<h1>Welcome, {userName}</h1>
 							</div>
 							<div className="log-out-container">
 								<Link to="/">
