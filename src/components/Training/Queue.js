@@ -87,4 +87,5 @@ const Cdiv = styled.div`
 	width: 33%;
 	text-align: center;
 	font-family: "Poppins", sans-serif;
+	overflow-wrap: break-word;
 `;

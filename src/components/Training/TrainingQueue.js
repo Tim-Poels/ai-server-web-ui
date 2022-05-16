@@ -57,5 +57,4 @@ const BoxTitle = styled.h2`
 	font-size: 36px;
 	font-weight: 600;
 	text-align: center;
-	margin-bottom: 70px;
 `;
