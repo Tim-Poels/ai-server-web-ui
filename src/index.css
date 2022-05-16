@@ -13,10 +13,11 @@ canvas {
   z-index: 0;
 }
 
-#canvas-back {
+.canvas-back {
   position: fixed;
   z-index: 1;
 }
+
 
 .App {
   text-align: center;
