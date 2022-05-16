@@ -6,7 +6,6 @@ import "./training.css";
 import colorNav from "./ColorNav.js";
 
 
-
 export default function PastTraining(props) {
 	const [trainingPast, setTrainingPast] = useState({ data: [] })
 
@@ -35,51 +34,45 @@ export default function PastTraining(props) {
 	let myJWT = props.jwt
 	const delay = 30000
 
-
-
-
-
 	useEffect(() => {
 		colorNav("tab3")
 		fetchMyPast()
-
 	}, []);
 
-	useInterval(
-		() => {
-			fetchMyPast()
-		},
-		delay
-	)
-
+	useInterval(() => {
+		fetchMyPast()
+	},
+		delay)
 
 	return (
-
 		<Wrapper>
-			<BoxTitle>Past Trainings</BoxTitle>
+			<TitleContainer>
+				<SmallTitleContainer>
+					<h1>Past Trainings</h1>
+				</SmallTitleContainer>
+				<SmallTitleContainer>
+					<h3>You have {trainingPast.data.length} trainings done</h3>
+					<h4>Refreshing every 30 seconds</h4>
+				</SmallTitleContainer>
+			</TitleContainer>
 			<Past trainingPast={trainingPast} />
 		</Wrapper>
 	);
 }
 
 const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
 	height: 100%;
 	width: 100%;
 	box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.25);
 	padding: 20px;
-	padding-left: 40px;
-	padding-right: 30px;
 `;
 
-const BoxTitle = styled.h2`
-height: 20%;
-width: 100%;
-color: black;
-font-family: "poppins", sans-serif;
-font-style: normal;
-font-size: 36px;
-font-weight: 600;
-text-align: center;
+const TitleContainer = styled.div`
+	width: 100%;
+	display: flex;
+	height: 15%;
+`;
+
+const SmallTitleContainer = styled.div`
+width: 50%;
 `;

@@ -14,13 +14,12 @@
 .body-container {
   max-width: 100vw;
   height: 100vh;
-  
 }
 
 @keyframes stretch {
   0% {
     height: 60vh;
-	  width: 50vh;
+    width: 50vh;
     margin-top: 30vh;
     margin-bottom: 10vh;
     border-radius: 15%;
@@ -36,7 +35,7 @@
   }
 }
 
-.dashboard-container { 
+.dashboard-container {
   width: 80vw;
   height: 95vh;
   background-color: white;
@@ -114,9 +113,10 @@
   width: 65%;
   /* border-bottom: 2px solid black; */
 }
-h2 {
+h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
+  font-size: 1.5em;
 }
 .logo-container {
   width: 10%;
@@ -147,9 +147,6 @@ h2 {
   width: 70%;
   height: 100%;
   padding: 20px 30px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
 }
 a {
   text-decoration: none;
