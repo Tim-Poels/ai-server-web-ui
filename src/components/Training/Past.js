@@ -73,6 +73,10 @@ const Adiv = styled.div`
 	width: 80%;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	scrollbar-width: thin;
+	scrollbar-color: black white; 
+
+	
 	
 `;
 
