@@ -48,6 +48,10 @@ export default function Matrix() {
 
 	setInterval(draw, 75);
   let dataUrl = c.toDataURL();
-  let div = document.getElementById("canvas-back");
-	div.style.background = "url(" + dataUrl + ")";
+  const div = document.getElementsByClassName("canvas-back");
+	console.log(div[0])
+	for (let i = 0; i < div.length; i++) {
+		div[i].style.background = "url(" + dataUrl + ")";
+	}
+	
 }

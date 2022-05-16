@@ -12,7 +12,7 @@ export default function Login(props) {
 	return (
 		<div>
 			<canvas id="canvasEl"></canvas>
-			<LoginPage id="canvas-back">
+			<LoginPage className="canvas-back">
 				<LoginContainer user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
 			</LoginPage>
 			
