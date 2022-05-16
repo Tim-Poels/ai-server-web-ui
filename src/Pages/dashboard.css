@@ -36,6 +36,18 @@
   display: flex;
   padding-right: 30px;
 }
+
+
+.horLine{
+  height: 2px;
+  background-color: black;
+  padding-right: 119px;
+  text-align: end;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+
 .title {
   width: 25%;
   display: flex;
@@ -44,11 +56,11 @@
   padding-right: 10px;
   align-items: flex-end;
   text-align: end;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
 }
 .log-out-container {
   width: 65%;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
 }
 h2 {
   font-family: "Roboto", sans-serif;

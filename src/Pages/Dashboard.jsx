@@ -45,6 +45,7 @@ const Dashboard = (props) => {
 								</Link>
 							</div>
 						</div>
+						<div className='horLine'></div>
 						<div className="content-and-navbar-cont">
 							<div className="navbar">
 								<Adiv>
