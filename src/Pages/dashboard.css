@@ -8,20 +8,61 @@
   display: flex;
   justify-content: center;
 }
+
+/*animation*/
+
 .body-container {
   max-width: 100vw;
   height: 100vh;
+  
 }
-.dashboard-container {
+
+@keyframes stretch {
+  0% {
+    margin-top: 30vh;
+    height: 60vh;
+	  width: 50vh;
+  }
+  /*
+  20% {
+    margin-top: 30vh;
+    height: 60vh;
+	  width: 50vh;
+  }*/
+  100% {
+    width: 80vw;
+    height: 95vh;
+  }
+}
+
+.dashboard-container { 
   width: 80vw;
   height: 95vh;
   background-color: white;
   border-radius: 20px;
+  animation-name: stretch;
+  animation-duration: 2s;  
+  animation-iteration-count: normal;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-container {
   height: 90%;
   padding: 2rem 2rem 0rem 2rem;
+  animation-name: opacity;
+  animation-duration: 2s;  
+  animation-iteration-count: normal;
 }
 
 .footer {
