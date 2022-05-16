@@ -49,11 +49,13 @@ const Wrapper = styled.div`
 `;
 
 const BoxTitle = styled.h2`
-	margin-left: auto;
-	margin-right: auto;
+	height: 20%;
+	width: 100%;
+	color: black;
 	font-family: "poppins", sans-serif;
 	font-style: normal;
 	font-size: 36px;
 	font-weight: 600;
-	line-height: 28px;
+	text-align: center;
+	margin-bottom: 70px;
 `;
