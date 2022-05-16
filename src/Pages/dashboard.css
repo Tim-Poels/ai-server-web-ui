@@ -40,6 +40,35 @@
   animation-iteration-count: normal;
 }
 
+@keyframes lineH {
+  0%{
+      width: 0% ;
+      padding-right: 30px;
+     
+  }
+  100%{
+    
+      width:95.6%;
+      padding-right: 30px;
+  }
+  
+}
+
+
+@keyframes lineV {
+  0%{
+     opacity: 0;
+     
+  }
+  35%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+  
+}
+
 @keyframes opacity {
   0% {
     opacity: 0;
@@ -81,6 +110,11 @@
   text-align: end;
   margin-right: 30px;
   margin-left: 30px;
+
+  animation-name: lineH;
+  animation-duration: 2s;  
+  animation-iteration-count: normal;
+  transition-timing-function: ease-in-out;
 }
 
 
@@ -138,4 +172,19 @@ h2 {
 a {
   text-decoration: none;
   color: black;
+}
+
+
+@keyframes waitF {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity:0;
+  }
+
+}
+
+.myButtonCanvas{
+
 }
