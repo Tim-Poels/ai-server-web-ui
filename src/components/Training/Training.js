@@ -6,9 +6,12 @@ import colorNav from "./ColorNav.js";
 function Training(props) {
 	//styling
 	useEffect(() => colorNav("tab1"));
-	const lineRef = useRef()
-	const coloredLine = () => lineRef.current.style.backgroundColor = "#65C0CE"
-	const blackLine = () => lineRef.current.style.backgroundColor = "black"
+	const lineRef1 = useRef()
+	const coloredLine1 = () => lineRef1.current.style.backgroundColor = "#65C0CE"
+	const blackLine1 = () => lineRef1.current.style.backgroundColor = "black"
+	const lineRef = useRef();
+	const coloredLine = () => (lineRef.current.style.backgroundColor = "#65C0CE");
+	const blackLine = () => (lineRef.current.style.backgroundColor = "black");
 
 
 	const [img, setImg] = useState('')
@@ -67,10 +70,10 @@ function Training(props) {
 							required
 							placeholder="DockerHub_username/image_name"
 							style={{ border: "none" }}
-							onClick={coloredLine}
-							onPointerLeave={blackLine}
+							onClick={coloredLine1}
+							onPointerLeave={blackLine1}
 						/>
-						<div className='input-line' ref={lineRef}></div>
+						<div className='input-line' ref={lineRef1}></div>
 					</div>
 					<div className='input-field-div'>
 						<h3 className='input-title'>Volume</h3>

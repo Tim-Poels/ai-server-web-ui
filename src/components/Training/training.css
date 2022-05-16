@@ -7,7 +7,7 @@ Input style
 }
 
 .input-line {
-  height: 2px;
+  height: 1.5px;
   width: 100%;
   background-color: black;
   transition: 0.4s;
