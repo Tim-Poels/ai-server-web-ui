@@ -10,9 +10,14 @@ export default function LoginContainer(props) {
 	return (
 		<LoginContainerDiv>
 			<LoginLogo />
-			<LoginBackground>
+			<LoginBackground className="make-dissapear">
 				<LoginTitle />
-				<LoginForm user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
+				<LoginForm
+					user={props.user}
+					setUser={props.setUser}
+					jwt={props.JWT}
+					setJWT={props.setJWT}
+				/>
 				<LoginFooter />
 			</LoginBackground>
 			<LoginGitLink />
