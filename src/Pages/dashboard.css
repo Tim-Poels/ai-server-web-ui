@@ -17,7 +17,7 @@
 
 .main-container {
   height: 90%;
-  padding: 3rem 3rem 0rem 3rem;
+  padding: 2rem 2rem 0rem 2rem;
 }
 
 .footer {
@@ -28,7 +28,7 @@
   border-bottom-right-radius: 20px;
 }
 .header {
-  height: 20%;
+  height: 15%;
   display: flex;
   padding-right: 30px;
 }
@@ -64,7 +64,7 @@ h2 {
   font-size: 2em;
 }
 .content-and-navbar-cont {
-  height: 80%;
+  height: 85%;
   width: 100%;
   display: flex;
 }

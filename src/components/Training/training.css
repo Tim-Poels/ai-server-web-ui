@@ -1,11 +1,9 @@
-
-
 /**********************
 Input style
 ***********************/
 
 .input-title {
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 .input-line {
@@ -16,7 +14,7 @@ Input style
 }
 
 .input-field {
-  margin-top:1rem;
+  margin-top: 1rem;
   outline: none;
   width: 75%;
 }
@@ -24,14 +22,12 @@ Input style
 .input-field-div {
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 100%
+  width: 100%;
 }
-
 
 /**********************
 Buttons
 ***********************/
-
 
 .submitButton {
   height: 100%;
@@ -40,7 +36,7 @@ Buttons
   color: white;
   border: none;
   border-radius: 14px;
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
@@ -48,7 +44,7 @@ Buttons
 }
 
 .submitButton:hover {
-background-color: #65C0CE;
+  background-color: #65c0ce;
 }
 
 /******************
@@ -57,13 +53,11 @@ Training queue
 
 .queue {
   display: flex;
-	flex-direction: column;
-	height: 100%;
+  flex-direction: column;
+  height: 80%;
   width: 100%;
-	/* justify-content: center; */
+  /* justify-content: center; */
   align-items: center;
   /* margin-top: 5%; */
   /* padding: 20px; */
-
 }
-	
