@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import LoginContainer from "./LoginContainer.js"
+import Matrix from "../Matrix.js"
 import "./login.css"
 
 export default function Login(props) {
-
+	useEffect(() => {
+		Matrix();
+	})
 
 	return (
-		<LoginPage>
-			<LoginContainer user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
-		</LoginPage>
+		<div>
+			<canvas id="canvasEl"></canvas>
+			<LoginPage id="canvas-back">
+				<LoginContainer user={props.user} setUser={props.setUser} jwt={props.JWT} setJWT={props.setJWT} />
+			</LoginPage>
+			
+		</div>
+		
 	);
 }
 
