@@ -4,10 +4,10 @@ import logo from "../../images/logo-becode.png";
 
 export default function LoginLogo() {
   return (
-    <Adiv>
-      <img className="login-imag" alt="Image is brok :((" src={logo}></img>;
-    </Adiv>
-  )
+		<Adiv className="make-appear">
+			<img className="login-imag" alt="Image is brok :((" src={logo}></img>;
+		</Adiv>
+	);
 }
 
 const Adiv = styled.div`
