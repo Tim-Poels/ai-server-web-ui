@@ -70,11 +70,11 @@
   
 }
 
-@keyframes opacity {
+@keyframes content-opacity {
   0% {
     opacity: 0;
   }
-  50% {
+  60% {
     opacity: 0;
   }
   100% {
@@ -85,16 +85,13 @@
 .main-container {
   height: 90%;
   padding: 30px 30px 0px 30px;
-  animation-name: opacity;
-  animation-duration: 1.25s;  
-  animation-iteration-count: normal;
 }
 
 @keyframes footer {
   0% {
     opacity: 0;
   }
-  50% {
+  75% {
     opacity: 0;
   }
   100% {
@@ -107,7 +104,7 @@
   font-family: "Source Code Pro", monospace;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  animation: footer 1.25s normal;
+  animation: footer 3s normal;
 }
 .header {
   height: 15%;
@@ -222,6 +219,9 @@ h1 {
   width: 70%;
   height: 100%;
   padding: 20px 30px;
+  animation-name: content-opacity;
+  animation-duration: 2s;  
+  animation-iteration-count: normal;
 }
 a {
   text-decoration: none;
