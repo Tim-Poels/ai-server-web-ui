@@ -22,44 +22,66 @@ function Training(props) {
 	const [errMsg, setErrMsg] = useState('');
 
 	const handleSubmit = (e) => {
-		console.log(volume)
 		e.preventDefault();
+		console.log(volume)
+		if (volume.split("")[0] !== "/") {
+			let p = document.getElementById("poppup");
+			p.classList.remove("succes-message");
+			p.classList.remove("error-message");
+			setErrMsg(`Volume has to start with "/" not "${volume.split("")[0]}"`);
+			p.classList.add("error-message");
+			setTimeout(() => {
+				p.classList.remove("error-message");
+			}, "7500");
+		} else {
+			const requestOptions = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${props.jwt}`,
+				},
+				body: JSON.stringify({
+					docker_image_name: img.toLowerCase(),
+					volume: volume,
+				}),
+			};
 
-		const requestOptions = {
-			method: 'POST',
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Bearer ${props.jwt}`
-			},
-			body: JSON.stringify(
-				{ docker_image_name: img.toLowerCase(), volume: volume }
+			fetch(
+				"http://api.ai-server.becode.org/send_training_to_queue",
+				requestOptions
 			)
-		};
-
-
-		fetch('http://api.ai-server.becode.org/send_training_to_queue', requestOptions)
-			.then(response => response.json())
-			.then(data => {
-				console.log(data)
-				if ("error" in data) {
-					setErrMsg(data.error)
-				}
-				else if ("success" in data) {
-					setErrMsg(data.success)
-				}
-			})
-			.catch((err) => {
-				console.error("Error:", err)
-			})
-
-	}
-
+				.then((response) => response.json())
+				.then((data) => {
+					let p = document.getElementById("poppup");
+					if ("error" in data) {
+						p.classList.remove("succes-message");
+						p.classList.remove("error-message");
+						setErrMsg(data.error);
+						p.classList.add("error-message");
+						setTimeout(() => {
+							p.classList.remove("error-message");
+						}, "7500");
+					} else if ("success" in data) {
+						p.classList.remove("succes-message");
+						p.classList.remove("error-message");
+						setErrMsg(data.success);
+						p.classList.add("succes-message");
+						setTimeout(() => {
+							p.classList.remove("succes-message");
+						}, "7500");
+					}
+				})
+				.catch((err) => {
+					console.error("Error:", err);
+				});
+		}
+		}
 
 	return (
 		<Wrapper>
 			<BoxTitle>Training Launcher</BoxTitle>
 			<InputCont>
-				<p ref={errRef}>{errMsg}</p>
+				<p ref={errRef} id="poppup">{errMsg}</p>
 				<form onSubmit={handleSubmit}>
 					<div className='input-field-div'>
 						<h3 className='input-title'>DockerHub image slug</h3>

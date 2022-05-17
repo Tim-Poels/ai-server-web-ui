@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function LoginFooter() {
   return (
-		<Footer>
+		<Footer className="make-appear">
 			<FooterText>Any issue? Contact your coach!</FooterText>
 		</Footer>
 	);
