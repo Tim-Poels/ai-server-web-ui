@@ -7,7 +7,6 @@ export default function ColorNav(tabClass) {
   tabs[0].style.fontWeight = "600";
   tabs[1].style.border = "5.5px solid #319b3f";
   tabs[1].style.backgroundColor = "#319b3f"
-
   return;
 }
 

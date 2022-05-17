@@ -83,7 +83,7 @@ export default function LoginForm(props) {
 	}
 
 	return (
-		<LoginDiv>
+		<LoginDiv className="make-appear">
 			<p ref={errRef}>{errMsg}</p>
 			<form onSubmit={handleSubmit}>
 				<EmailDiv>

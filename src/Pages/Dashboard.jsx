@@ -7,6 +7,7 @@ import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import Matrix from '../components/Matrix.js';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -17,7 +18,9 @@ const Dashboard = (props) => {
 	useEffect(() => {
 		Matrix();
 	});
-	
+
+	const navigate = useNavigate();
+  
 	const canvasStyle = {
   	opacity: 0.5,
 	};	
@@ -43,12 +46,28 @@ const Dashboard = (props) => {
 								<h1>Welcome, {userName}</h1>
 							</div>
 							<div className="log-out-container">
-								<Link to="/sign-in" onClick={() => deleteBothCookies("jwt", "username")}>
+
+								<Link to="/sign-in"
+									onClick={() => {
+                    deleteBothCookies("jwt", "username")
+										let container = document.getElementsByClassName(
+											"dashboard-container"
+										)[0];
+										let content =
+											document.getElementsByClassName("main-container")[0];
+										let footer = document.getElementsByClassName('footer')[0];
+										footer.style.animation = "reverse-footer 1.25s normal";
+										content.style.animation = "reverse-content-opacity 1.25s normal";
+										container.style.animation = "reverse-stretch 1.25s normal";
+										setTimeout(() => {
+											navigate("/", { replace: true });
+										}, "1250");
+									}}>
 									<BiLogOut />
 								</Link>
 							</div>
 						</div>
-						<div className='horLine'></div>
+						<div className="horLine"></div>
 						<div className="content-and-navbar-cont">
 							<div className="navbar">
 								<Adiv>
