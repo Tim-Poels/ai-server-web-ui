@@ -52,6 +52,7 @@ function App() {
 
 					<Route index element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
 					<Route path="*" element={<Navigate to="/" replace={true} />} />
+
 				</Routes>
 			</BrowserRouter>
 		);
@@ -63,7 +64,7 @@ function App() {
 		return (
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Dashboard jwt={JWT} user={user} />}>
+					<Route path="/dashboard" element={<Dashboard jwt={JWT} user={user} />}>
 						<Route index element={<Training jwt={JWT} />} />
 						<Route
 							path="launcher"
@@ -79,7 +80,8 @@ function App() {
 						/>
 					</Route>
 
-					{/* <Route index element={<Dashboard jwt={JWT} user={user} />} /> */}
+					<Route path="sign-in" element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
+					<Route path="/" element={<Navigate to="/dashboard" replace={true} />} />
 					<Route path="*" element={<Navigate to="/" replace={true} />} />
 				</Routes>
 			</BrowserRouter>

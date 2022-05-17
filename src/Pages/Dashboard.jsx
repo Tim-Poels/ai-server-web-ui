@@ -65,8 +65,9 @@ const Dashboard = (props) => {
 									onClick={() => {
 										deleteBothCookies("jwt", "username")
 										logoutAnim()
+
 										setTimeout(() => {
-											navigate("/", { replace: true });
+												navigate("/sign-in", { replace: true })
 										}, "1250"); 
 									}}>
 									<BiLogOut />
