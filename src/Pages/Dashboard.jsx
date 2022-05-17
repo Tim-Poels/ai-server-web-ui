@@ -31,6 +31,20 @@ const Dashboard = (props) => {
 		document.cookie = `${cname2}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
 	}
 
+	//animation on logout
+	const logoutAnim = () => {
+		let container = document.getElementsByClassName(
+			"dashboard-container"
+		)[0];
+		let content =
+			document.getElementsByClassName("main-container")[0];
+		let footer = document.getElementsByClassName('footer')[0];
+		footer.style.animation = "reverse-footer 1.25s normal";
+		content.style.animation = "reverse-content-opacity 1.25s normal";
+		container.style.animation = "reverse-stretch 1.25s normal";
+		
+	}
+
 	return (
 		<div className="canvas-container">
 			<canvas id="canvasEl" style={canvasStyle}></canvas>
@@ -47,21 +61,14 @@ const Dashboard = (props) => {
 							</div>
 							<div className="log-out-container">
 
-								<Link to="/sign-in"
+								<Link to=""
 									onClick={() => {
-                    deleteBothCookies("jwt", "username")
-										let container = document.getElementsByClassName(
-											"dashboard-container"
-										)[0];
-										let content =
-											document.getElementsByClassName("main-container")[0];
-										let footer = document.getElementsByClassName('footer')[0];
-										footer.style.animation = "reverse-footer 1.25s normal";
-										content.style.animation = "reverse-content-opacity 1.25s normal";
-										container.style.animation = "reverse-stretch 1.25s normal";
+										deleteBothCookies("jwt", "username")
+										logoutAnim()
+										
 										setTimeout(() => {
 											navigate("/", { replace: true });
-										}, "1250");
+										}, "1250"); 
 									}}>
 									<BiLogOut />
 								</Link>

@@ -81,7 +81,6 @@ function App() {
 
 					{/* <Route index element={<Dashboard jwt={JWT} user={user} />} /> */}
 					<Route path="*" element={<Navigate to="/" replace={true} />} />
-					<Route path="sign-in" element={<Login user={user} setUser={setUser} jwt={JWT} setJWT={setJWT} />} />
 				</Routes>
 			</BrowserRouter>
 		);
