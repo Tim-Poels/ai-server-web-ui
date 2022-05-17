@@ -14,8 +14,23 @@ export default function LoginForm(props) {
 	const coloredLine = () => lineRef.current.style.backgroundColor = "#65C0CE";
 	const blackLine = () => lineRef.current.style.backgroundColor = "black";
 
-	//code for setting username and password <------ is this a safe way to store password? 
+	//code for setting username and password 
 	const [pwd, setPwd] = useState('');
+	//for checking the remember me button
+	const [checked, setChecked] = useState(false);
+	const handleChange = () => {
+		setChecked(!checked);
+	};
+
+	//funtion to set document cookies
+	const setDocumentCookie = (cname, cvalue, exdays) => {
+		const d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		let expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + "; SameSite=None; Secure";
+	}
+
+
 
 	//code for setting error messages above the form
 	const errRef = useRef();
@@ -42,16 +57,20 @@ export default function LoginForm(props) {
 			.then((data) => {
 				if (data.jwt) {
 					let container = document.querySelector(".make-dissapear")
-					
+
 					for (let i = 0; i < container.childNodes.length; i++) {
 						container.childNodes[i].style.animation = "dissapear 0.25s normal";
 					}
-					
+
 					setTimeout(() => {
+						if (checked) {
+							setDocumentCookie("jwt", data.jwt, 30)
+							setDocumentCookie("username", props.user, 30)
+						}
 						props.setJWT(data.jwt);
 						navigate("/dashboard", { replace: true });
 					}, "250");
-					
+
 				}
 				else {
 					setErrMsg('Login Failed');
@@ -106,7 +125,12 @@ export default function LoginForm(props) {
 				</PasswordDiv>
 				<ButtonDiv>
 					<div>
-						<RememberMe type="checkbox" name="checkbox" id="checkbox" />
+						<input
+							type="checkbox"
+							name="checkbox"
+							checked={checked}
+							onChange={handleChange}
+						/>
 						<Label HTMLfor="checkbox"> Remember me</Label>
 					</div>
 					<LoginButton type="submit" value="Login" />
@@ -156,8 +180,6 @@ const ButtonDiv = styled.div`
 	justify-content: space-between;
 	margin-left: 2vw;
 `;
-
-const RememberMe = styled.input``;
 
 const Label = styled.label`
 	font-family: "Poppins", sans-serif;
