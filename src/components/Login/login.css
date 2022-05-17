@@ -33,3 +33,7 @@ The logo in the login page
 .make-appear {
   animation: appear 3s normal;
 }
+
+.margin-p {
+  margin-bottom: 20px;
+}

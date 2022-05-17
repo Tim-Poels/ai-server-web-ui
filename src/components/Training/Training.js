@@ -40,12 +40,20 @@ function Training(props) {
 		fetch('http://api.ai-server.becode.org/send_training_to_queue', requestOptions)
 			.then(response => response.json())
 			.then(data => {
-				console.log(data)
+				let p = document.getElementById("poppup")
 				if ("error" in data) {
 					setErrMsg(data.error)
+					p.classList.add("error-message");
+					setTimeout(() => {
+						p.classList.remove("error-message");
+					}, "7500");
 				}
 				else if ("success" in data) {
 					setErrMsg(data.success)
+					p.classList.add("succes-message");
+					setTimeout(() => {
+						p.classList.remove("succes-message");
+					}, "7500");
 				}
 			})
 			.catch((err) => {
@@ -59,7 +67,7 @@ function Training(props) {
 		<Wrapper>
 			<BoxTitle>Training Launcher</BoxTitle>
 			<InputCont>
-				<p ref={errRef}>{errMsg}</p>
+				<p ref={errRef} id="poppup">{errMsg}</p>
 				<form onSubmit={handleSubmit}>
 					<div className='input-field-div'>
 						<h3 className='input-title'>DockerHub image slug</h3>

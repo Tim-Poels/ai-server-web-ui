@@ -89,3 +89,41 @@ h4 {
   }
 }
 
+@keyframes message {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#poppup {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.error-message {
+  font-family: "Roboto", sans-serif;
+  border: 3px solid red;
+  background-color: rgb(255, 175, 175);
+  color: red;
+  animation: message 7.5s normal;
+  box-shadow: 0px 0px 10px 1px rgb(255, 175, 175);
+}
+
+.succes-message {
+  font-family: "Roboto", sans-serif;
+  border: 3px solid green;
+  background-color: rgb(194, 255, 175);
+  color: green;
+  animation: message 7.5s normal;
+  box-shadow: 0px 0px 10px 1px rgb(194, 255, 175);
+}
