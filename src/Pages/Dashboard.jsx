@@ -65,7 +65,6 @@ const Dashboard = (props) => {
 									onClick={() => {
 										deleteBothCookies("jwt", "username")
 										logoutAnim()
-										
 										setTimeout(() => {
 											navigate("/", { replace: true });
 										}, "1250"); 
