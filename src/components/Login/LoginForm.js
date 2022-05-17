@@ -55,6 +55,11 @@ export default function LoginForm(props) {
 				}
 				else {
 					setErrMsg('Login Failed');
+					let p = document.getElementById("poppup");
+					p.classList.add("error-message");
+					setTimeout(() => {
+						p.classList.remove("error-message");
+					}, "7500");
 				}
 
 			})
@@ -65,7 +70,7 @@ export default function LoginForm(props) {
 
 	return (
 		<LoginDiv className="make-appear">
-			<p ref={errRef}>{errMsg}</p>
+			<p ref={errRef} id="poppup" className='margin-p'>{errMsg}</p>
 			<form onSubmit={handleSubmit}>
 				<EmailDiv>
 					<BiAt className="login-icons" />
@@ -119,11 +124,13 @@ export default function LoginForm(props) {
 //container of the login form
 const LoginDiv = styled.div`
 	width: 50vh;
-	height: 30vh;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 2.5vh;
+	margin-top: auto;
+	margin-bottom: auto;
+	padding-bottom: 50px;
 `;
 
 //the form
