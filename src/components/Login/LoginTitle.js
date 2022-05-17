@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function LoginTitle() {
   return (
-		<TitleDiv>
+		<TitleDiv className="make-appear">
 			<Title>AI Server</Title>
 		</TitleDiv>
 	);

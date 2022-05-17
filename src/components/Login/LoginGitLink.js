@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function LoginGitLink() {
   return (
-		<LinkDiv>
+		<LinkDiv  className="make-appear">
 			<GitLink href="https://www.github.com" target="_blank">
 				GitHub Repository
 			</GitLink>
