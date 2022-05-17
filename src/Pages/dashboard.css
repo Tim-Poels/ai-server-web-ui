@@ -45,16 +45,14 @@
 
 @keyframes lineH {
   0%{
-      width: 0% ;
-      padding-right: 30px;
-     
+    margin-right: 1000px;
+  }
+  50% {
+    margin-right: 600px;
   }
   100%{
-    
-      width:95.6%;
-      padding-right: 30px;
+    margin-right: 30px;
   }
-  
 }
 
 
@@ -72,11 +70,11 @@
   
 }
 
-@keyframes opacity {
+@keyframes content-opacity {
   0% {
     opacity: 0;
   }
-  50% {
+  60% {
     opacity: 0;
   }
   100% {
@@ -86,17 +84,14 @@
 
 .main-container {
   height: 90%;
-  padding: 2rem 2rem 0rem 2rem;
-  animation-name: opacity;
-  animation-duration: 1.25s;  
-  animation-iteration-count: normal;
+  padding: 30px 30px 0px 30px;
 }
 
 @keyframes footer {
   0% {
     opacity: 0;
   }
-  50% {
+  75% {
     opacity: 0;
   }
   100% {
@@ -109,7 +104,7 @@
   font-family: "Source Code Pro", monospace;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  animation: footer 1.25s normal;
+  animation: footer 3s normal;
 }
 .header {
   height: 15%;
@@ -132,6 +127,17 @@
   transition-timing-function: ease-in-out;
 }
 
+@keyframes title-fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
 
 .title {
   width: 25%;
@@ -141,10 +147,25 @@
   padding-right: 10px;
   align-items: flex-end;
   text-align: end;
+  animation: title-fade-in 2s normal;
   /* border-bottom: 2px solid black; */
 }
+
+@keyframes logout-fade-in {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .log-out-container {
   width: 65%;
+  animation: logout-fade-in 2s normal;
   /* border-bottom: 2px solid black; */
 }
 h1 {
@@ -155,9 +176,26 @@ h1 {
 .logo-container {
   width: 10%;
 }
+
+@keyframes logo-fade-in {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50%{
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 125%;
+  }
+}
+
 .logo {
   width: 125%;
   margin-top: 5px;
+  animation: logo-fade-in 1s normal;
 }
 .log-out-container {
   display: flex;
@@ -181,6 +219,9 @@ h1 {
   width: 70%;
   height: 100%;
   padding: 20px 30px;
+  animation-name: content-opacity;
+  animation-duration: 2s;  
+  animation-iteration-count: normal;
 }
 a {
   text-decoration: none;
