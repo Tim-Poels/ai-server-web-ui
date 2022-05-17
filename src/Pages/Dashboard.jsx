@@ -11,7 +11,6 @@ import Matrix from '../components/Matrix.js';
 
 
 const Dashboard = (props) => {
-	//The message is updated via props
 	const footerMessage = "Any issue? Contact your coach!";
 	//The username will be updated via Props
 	const userName = props.user;
@@ -21,9 +20,13 @@ const Dashboard = (props) => {
 	
 	const canvasStyle = {
   	opacity: 0.5,
-	};
+	};	
 
-		
+	//funtion to delete cookies on logout
+	const deleteBothCookies = (cname1, cname2) => {
+		document.cookie = `${cname1}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+		document.cookie = `${cname2}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+	}
 
 	return (
 		<div className="canvas-container">
@@ -40,7 +43,7 @@ const Dashboard = (props) => {
 								<h1>Welcome, {userName}</h1>
 							</div>
 							<div className="log-out-container">
-								<Link to="/">
+								<Link to="/sign-in" onClick={() => deleteBothCookies("jwt", "username")}>
 									<BiLogOut />
 								</Link>
 							</div>
