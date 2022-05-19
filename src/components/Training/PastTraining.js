@@ -23,7 +23,7 @@ export default function PastTraining(props) {
 			setTrainingPast(trainingPast.data = data)
 		}
 
-		fetch('http://api.ai-server.becode.org/get_all_training_queue', requestOptions)
+		fetch('https://api.ai-server.becode.org/get_all_training_queue', requestOptions)
 			.then(response => response.json())
 			.then(data =>
 				showMyData(data)

@@ -19,7 +19,7 @@ export default function TrainingQueue(props) {
 			},
 		};
 
-		fetch('http://api.ai-server.becode.org/get_user_training_queue', requestOptions)
+		fetch('https://api.ai-server.becode.org/get_user_training_queue', requestOptions)
 			.then(response => response.json())
 			.then(data => {
 				console.log(data)

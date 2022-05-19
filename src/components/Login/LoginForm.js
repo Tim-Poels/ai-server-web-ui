@@ -4,7 +4,7 @@ import { BiAt, BiCheckShield } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm(props) {
-	const LOGIN_URL = "http://api.ai-server.becode.org/api/auth"
+	const LOGIN_URL = "https://api.ai-server.becode.org/api/auth"
 
 	//for redirecting after auth
 	const navigate = useNavigate();
