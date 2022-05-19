@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.getpadding {
+  padding-left: 5px;
+}
+
 /*animation*/
 
 .body-container {

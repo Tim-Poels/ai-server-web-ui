@@ -17,7 +17,7 @@ export default function Past({ trainingPast }) {
 			let data = trainingPast.data[i];
 			queue.push(
 				<Bdiv key={i} id={i} className={"background-change"}>
-					<Cdiv>{data.containerId}</Cdiv>
+					<Cdiv className="getpadding">{data.containerId}</Cdiv>
 					<Cdiv>
 						{data.status}
 					</Cdiv>
