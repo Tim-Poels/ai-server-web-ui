@@ -79,7 +79,6 @@ const Dashboard = (props) => {
 	},[]);
 	
 
-	});
 
 	const navigate = useNavigate();
   

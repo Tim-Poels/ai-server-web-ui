@@ -46,10 +46,10 @@ function Training(props) {
 				}),
 			};
 
-			fetch(
-				"http://api.ai-server.becode.org/send_training_to_queue",
-				requestOptions
-			)
+
+			fetch('https://api.ai-server.becode.org/send_training_to_queue', requestOptions)
+
+
 				.then((response) => response.json())
 				.then((data) => {
 					let p = document.getElementById("poppup");
@@ -75,7 +75,8 @@ function Training(props) {
 					console.error("Error:", err);
 				});
 		}
-		}
+	}
+
 
 	return (
 		<Wrapper>
