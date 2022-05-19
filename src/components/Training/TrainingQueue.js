@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Queue from "./Queue.js"
 import "./training.css";
+import useInterval from '../Hook/useInterval.js';
 import colorNav from "./ColorNav.js";
 
 
@@ -10,7 +11,7 @@ export default function TrainingQueue(props) {
 
 	const [trainingQueue, setTrainingQueue] = useState({ data: [] })
 
-	useEffect(() => {
+	const fetchTrainingQueue = () => {
 		const requestOptions = {
 			method: 'GET',
 			headers: {
@@ -22,10 +23,19 @@ export default function TrainingQueue(props) {
 		fetch('https://api.ai-server.becode.org/get_user_training_queue', requestOptions)
 			.then(response => response.json())
 			.then(data => {
-				console.log(data)
 				setTrainingQueue(data)
 			})
+	}
+
+	useEffect(() => {
+		fetchTrainingQueue()
 	}, [props.jwt])
+	const delay = 30000
+
+	useInterval(() => {
+		fetchTrainingQueue()
+	},
+		delay)
 
 	if (trainingQueue.data.length === 0) {
 		return (

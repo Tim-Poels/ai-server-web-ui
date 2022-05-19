@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 
-export default function LoginInput({ textString, placeholder}) {
-  
-  const lineRef = useRef();
+export default function LoginInput({ textString, placeholder }) {
+
+	const lineRef = useRef();
 
 	const coloredLine = () => {
 		lineRef.current.style.backgroundColor = "#65C0CE";
@@ -13,18 +13,18 @@ export default function LoginInput({ textString, placeholder}) {
 		lineRef.current.style.backgroundColor = "black";
 	};
 
-  return (
-    <Adiv>
-      <Text>{textString}</Text>
+	return (
+		<Adiv>
+			<Text>{textString}</Text>
 			<Input
 				className="login-input-field"
-        placeholder={placeholder}
+				placeholder={placeholder}
 				style={{ border: "none" }}
 				onClick={coloredLine}
 				onPointerLeave={blackLine} />
 			<Bdiv ref={lineRef}></Bdiv>
-    </Adiv>
-  )
+		</Adiv>
+	)
 }
 
 const Adiv = styled.div`
@@ -40,7 +40,7 @@ const Input = styled.input`
 	font-family: "Poppins", sans-serif;
 	width: 30vh;
 	outline: none;
-  color: black;
+  	color: black;
 `;
 
 const Bdiv = styled.div`
