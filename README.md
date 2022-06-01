@@ -11,11 +11,15 @@ One of those options was to provide a web User Interface to AI learners in order
 To fix that, an AI coach made an API that manage queues and allow CORS , and this is the User Interface.
 
 
-### Technologies used :
+### Technologies used:
 
 1. React
+2. Styled Components
+3. Cookies
+4. Fetch
+5. Animations
 
-### The mission and requirements
+### The mission and requirements:
 
 * Succesfully connect to the APIs with the correct information 
 * Protected routes meaning no unauthorised access
@@ -23,8 +27,7 @@ To fix that, an AI coach made an API that manage queues and allow CORS , and thi
 * Displaying success/ failure messages
 * Dashboards letting users send their training to a queue using docker image slur 
 * Showing the training status in the queue and past trainings and their status. 
-
-Visually appealing by making it resposive and adding animatons.
+* Visually appealing by making it resposive and adding animatons.
 
 
 
